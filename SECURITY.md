@@ -30,8 +30,7 @@ Go to the repository's **Security** tab → **Report a vulnerability**. This ope
 private advisory visible only to maintainers. (Maintainers: enable this under
 *Settings → Code security and analysis → Private vulnerability reporting*.)
 
-**Alternative: email** `<<CONTACT_EMAIL>>` *(maintainers: set this to a monitored
-address — a dedicated alias is strongly preferred over a personal email).*
+**Alternative: email** `vivironycrazy@gmail.com`.
 
 Please include:
 - where the issue is (file/workflow/release and version),
