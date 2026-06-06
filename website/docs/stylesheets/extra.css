@@ -1,0 +1,19 @@
+/* Small theme touches for the AI-Driven SDLC site.
+   The Material theme handles the heavy lifting; keep this minimal. */
+
+:root {
+  --md-primary-fg-color: #00796b;        /* teal, echoing the book's callouts */
+  --md-primary-fg-color--light: #4db6ac;
+  --md-primary-fg-color--dark: #004d40;
+  --md-accent-fg-color: #00897b;
+}
+
+/* Make the hero buttons sit a little more comfortably on the home page */
+.md-button {
+  margin: 0.2rem 0.3rem 0.2rem 0;
+}
+
+/* Slightly roomier reading measure for long prose pages */
+.md-typeset {
+  line-height: 1.65;
+}

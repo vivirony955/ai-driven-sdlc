@@ -1,0 +1,50 @@
+name: 💡 Content improvement / proposal
+description: Suggest a clearer explanation, a new example, or a larger change to the book's content.
+title: "[Content] <short description>"
+labels: ["enhancement", "content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For **substantive** content changes, please propose here first so a
+        maintainer can agree the direction before anyone edits the binary
+        manuscript. See CONTRIBUTING.md and GOVERNANCE.md.
+  - type: input
+    id: location
+    attributes:
+      label: Which chapter/section does this affect?
+      placeholder: "Chapter N — Section title (or 'new section')"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What's the problem or opportunity?
+      description: What's unclear, missing, or could be stronger?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+      description: What should change? A before/after or an outline is great.
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Why does it help readers?
+      description: Who benefits and how.
+  - type: checkboxes
+    id: offer
+    attributes:
+      label: Can you help?
+      options:
+        - label: I'm willing to draft this change (e.g. provide a Track-Changes .docx or before/after text).
+  - type: checkboxes
+    id: coc
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true

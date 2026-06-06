@@ -1,0 +1,25 @@
+# https://editorconfig.org  — consistent formatting across editors
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+indent_style = space
+indent_size = 2
+
+[*.md]
+# Markdown: don't strip trailing whitespace (two trailing spaces = hard break)
+trim_trailing_whitespace = false
+max_line_length = 90
+
+[*.py]
+indent_size = 4
+max_line_length = 88
+
+[*.{ps1,bat}]
+end_of_line = crlf
+
+[Makefile]
+indent_style = tab

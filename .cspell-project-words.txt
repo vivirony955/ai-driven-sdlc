@@ -1,0 +1,20 @@
+# Project-specific words for cSpell. One word per line. Lines starting with # are ignored.
+# Add real domain terms here when the spell-check flags them in a PR, instead of
+# disabling the check. Keep it sorted-ish and deduplicated.
+AISDLC
+agentic
+chatbots
+codebase
+codebases
+observability
+orchestrator
+orchestrators
+prompt
+prompts
+runbook
+runbooks
+telemetry
+tokenizer
+tokenizers
+upsell
+walkthrough

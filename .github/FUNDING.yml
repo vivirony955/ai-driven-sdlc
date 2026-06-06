@@ -1,0 +1,12 @@
+# Shows a "Sponsor" button on the repository.
+# Uncomment and fill in the platforms you actually use; delete the rest.
+# Docs: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository
+
+# github: [vivirony955]            # GitHub Sponsors username(s)
+# ko_fi: your-handle
+# open_collective: your-collective
+# buy_me_a_coffee: your-handle
+# custom: ["https://example.org/donate"]
+
+# This is an open educational resource. If you don't take funding, you can leave
+# every line commented out (the button simply won't appear) or delete this file.

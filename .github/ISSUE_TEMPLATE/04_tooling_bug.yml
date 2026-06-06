@@ -1,0 +1,51 @@
+name: 🛠️ Tooling / website / CI bug
+description: Something in the scripts, GitHub Actions, build, or website is broken.
+title: "[Bug] <short description>"
+labels: ["bug", "tooling"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This is for the **machinery** (scripts, workflows, website, build), not the
+        book's content. For content problems use the Errata template. For security
+        issues, use private reporting (see SECURITY.md).
+  - type: input
+    id: component
+    attributes:
+      label: Component
+      placeholder: "e.g. build-book.yml, scripts/build-artifacts.sh, website nav"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect to happen?
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: What actually happened?
+      description: Paste error output / a link to the failed Actions run.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Run `...`
+        2. ...
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "OS, tool versions (pandoc/LibreOffice/Python/Node), or CI runner"
+  - type: checkboxes
+    id: coc
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true

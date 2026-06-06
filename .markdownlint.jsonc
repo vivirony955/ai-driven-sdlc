@@ -1,0 +1,29 @@
+// Configuration for markdownlint-cli2 (used by the markdown-lint workflow).
+// Docs: https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md
+{
+  "default": true,
+
+  // Prose wraps around 90 cols but tables, links, and code can run long.
+  "MD013": {
+    "line_length": 120,
+    "tables": false,
+    "code_blocks": false,
+    "headings": false
+  },
+
+  // Allow inline HTML — we use a few <sub>, <details>, and comment blocks.
+  "MD033": false,
+
+  // The README's title styling and badges are intentional.
+  "MD041": false,
+
+  // Duplicate headings are fine when nested under different sections
+  // (e.g. several "Tasks" / "Notes" subsections).
+  "MD024": { "siblings_only": true },
+
+  // First line doesn't have to be a top-level heading (license header comments).
+  "MD003": { "style": "atx" },
+
+  // Ordered lists may use 1. 1. 1. style.
+  "MD029": { "style": "one_or_ordered" }
+}

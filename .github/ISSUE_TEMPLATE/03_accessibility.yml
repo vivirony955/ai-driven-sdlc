@@ -1,0 +1,50 @@
+name: ♿ Accessibility issue
+description: Report a barrier for screen-reader, keyboard, low-vision, or other access needs — or offer alt-text/fixes.
+title: "[A11y] <short description>"
+labels: ["accessibility", "help wanted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        We treat accessibility as a quality concern (see ACCESSIBILITY.md).
+        Reporting a barrier — or contributing figure alt-text — is hugely valued.
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What kind of issue is this?
+      options:
+        - Missing figure alt-text
+        - Screen reader problem (EPUB/HTML/website)
+        - Color contrast / color-only meaning
+        - Keyboard navigation
+        - Table not announced correctly
+        - Reading order
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: where
+    attributes:
+      label: Where (file / format / figure number / URL)?
+      placeholder: "figures/figure-03.png, or the website page, or EPUB Chapter 4"
+    validations:
+      required: true
+  - type: textarea
+    id: detail
+    attributes:
+      label: Describe the barrier (and the tool you used)
+      description: e.g. "Using NVDA on the HTML edition, Figure 4.1 is announced only as 'image'."
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix or alt-text (optional)
+      description: For a figure, a one–two sentence description is perfect. See ACCESSIBILITY.md for tips.
+  - type: checkboxes
+    id: coc
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true

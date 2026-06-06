@@ -1,0 +1,81 @@
+# Deploy website (GitHub Pages)
+# -----------------------------
+# Builds the Material for MkDocs portal AND renders the book's HTML edition with
+# pandoc, then publishes both to GitHub Pages.
+#
+# Flow:
+#   1. pandoc renders book/...docx -> website/docs/book/index.html
+#      (so the "Read online" button works on the live site).
+#   2. mkdocs builds website/ -> website/site.
+#   3. The site is uploaded and deployed to Pages.
+#
+# One-time setup: repo Settings -> Pages -> "Build and deployment" -> Source =
+# "GitHub Actions". See releases/PUBLISHING_CHECKLIST.md.
+name: Deploy website
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "website/**"
+      - "book/**"
+      - ".github/workflows/deploy-website.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Allow only one concurrent deployment; let in-progress finish.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends pandoc
+
+      - name: Render the HTML edition into the site
+        run: |
+          mkdir -p website/docs/book
+          pandoc book/AI_Driven_SDLC_System.docx \
+            -o website/docs/book/index.html \
+            --standalone --toc --toc-depth=3 --embed-resources \
+            --metadata title="An AI-Driven Software Development System" \
+            --metadata lang=en
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: website/requirements.txt
+
+      - name: Install MkDocs Material
+        run: pip install -r website/requirements.txt
+
+      - name: Build site
+        # Non-strict: a few adopt-page links point to repo files outside docs_dir
+        # (they resolve when browsed on GitHub). See website/README.md.
+        run: mkdocs build -f website/mkdocs.yml
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: website/site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

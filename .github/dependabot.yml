@@ -1,0 +1,21 @@
+# Keep GitHub Actions and website dependencies up to date.
+# Docs: https://docs.github.com/code-security/dependabot/dependabot-version-updates
+version: 2
+updates:
+  # GitHub Actions used by our workflows
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "ci"
+    labels: ["dependencies", "ci"]
+
+  # Python deps for the MkDocs website
+  - package-ecosystem: "pip"
+    directory: "/website"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "docs"
+    labels: ["dependencies", "website"]

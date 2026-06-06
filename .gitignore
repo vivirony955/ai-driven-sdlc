@@ -1,0 +1,39 @@
+# --- Build outputs -----------------------------------------------------------
+/dist/            # locally-built PDF/EPUB/HTML (CI builds the released ones)
+/site/            # MkDocs build output
+website/site/
+
+# --- Large/redundant source bundles ------------------------------------------
+# The slides are tracked individually in slides/; the original zip is kept on
+# disk under archive/ for provenance but not committed (avoids a big binary in
+# git history). Remove this line if you DO want the zip versioned.
+archive/source-bundles/*.zip
+
+# --- Python ------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# --- Node (tooling: markdownlint, cspell, linkinator) ------------------------
+node_modules/
+package-lock.json
+npm-debug.log*
+
+# --- Office / OS temp files --------------------------------------------------
+~$*.docx
+~$*.pptx
+*.tmp
+.~lock.*#          # LibreOffice lock files
+.DS_Store
+Thumbs.db
+desktop.ini        # OneDrive/Windows folder metadata
+
+# --- Editors -----------------------------------------------------------------
+.idea/
+*.swp
+# Keep shared VS Code settings; ignore the rest
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json

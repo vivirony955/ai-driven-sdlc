@@ -1,0 +1,86 @@
+# Release
+# -------
+# Triggered when you push a version tag (e.g. v1.0.0). Builds every distributable
+# format from the canonical sources and publishes a GitHub Release with them
+# attached. This is what readers download.
+#
+# Artifacts produced:
+#   - AI_Driven_SDLC_System.pdf   (LibreOffice)
+#   - AI_Driven_SDLC_System.epub  (pandoc)
+#   - AI_Driven_SDLC_System.html  (pandoc, self-contained)
+#   - AI_Driven_SDLC_Slides_pptx.zip   (all source decks)
+#   - AI_Driven_SDLC_Slides_pdf.zip    (each deck as PDF)
+#   - AI_Driven_SDLC_TestBank.pdf
+#
+# To cut a release: bump CITATION.cff + CHANGELOG.md, then
+#   git tag v1.0.0 && git push origin v1.0.0
+# See releases/RELEASE_CHECKLIST.md.
+name: Release
+
+on:
+  push:
+    tags: ["v*.*.*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Tag to release (e.g. v1.0.0)"
+        required: true
+
+permissions:
+  contents: write # required to create the release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install pandoc and LibreOffice
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends pandoc libreoffice zip
+
+      - name: Build book formats (PDF/EPUB/HTML)
+        run: bash scripts/build-artifacts.sh
+
+      - name: Convert slides and test bank
+        run: |
+          mkdir -p dist/slides-pdf
+          # Each slide deck -> PDF
+          for f in slides/*.pptx; do
+            soffice --headless --convert-to pdf --outdir dist/slides-pdf "$f"
+          done
+          # Test bank -> PDF
+          soffice --headless --convert-to pdf --outdir dist test-bank/AI_Driven_SDLC_TestBank.docx
+          # Bundle slides (sources and PDFs)
+          (cd slides && zip -q -r ../dist/AI_Driven_SDLC_Slides_pptx.zip ./*.pptx)
+          (cd dist/slides-pdf && zip -q -r ../AI_Driven_SDLC_Slides_pdf.zip ./*.pdf)
+          rm -rf dist/slides-pdf
+
+      - name: List artifacts
+        run: ls -lh dist/
+
+      - name: Publish GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ github.event.inputs.tag || github.ref_name }}
+          name: ${{ github.event.inputs.tag || github.ref_name }}
+          generate_release_notes: true
+          body: |
+            **An AI-Driven Software Development System** — ${{ github.event.inputs.tag || github.ref_name }}
+
+            Downloadable editions are attached below (PDF, EPUB, HTML), along with
+            the slide decks (PPTX + PDF) and the test bank (PDF).
+
+            - 📖 Read online: https://vivirony955.github.io/ai-driven-sdlc/
+            - 📝 Changes: see [CHANGELOG.md](https://github.com/vivirony955/ai-driven-sdlc/blob/main/CHANGELOG.md)
+            - 📑 How to cite: see [CITATION.cff](https://github.com/vivirony955/ai-driven-sdlc/blob/main/CITATION.cff)
+
+            Content licensed CC BY 4.0; code MIT.
+          files: |
+            dist/AI_Driven_SDLC_System.pdf
+            dist/AI_Driven_SDLC_System.epub
+            dist/AI_Driven_SDLC_System.html
+            dist/AI_Driven_SDLC_Slides_pptx.zip
+            dist/AI_Driven_SDLC_Slides_pdf.zip
+            dist/AI_Driven_SDLC_TestBank.pdf

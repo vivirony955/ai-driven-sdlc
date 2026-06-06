@@ -1,0 +1,18 @@
+# Patterns (regex) for links lychee should not check.
+# One pattern per line. Docs: https://github.com/lycheeverse/lychee
+
+# Placeholder repository identity — these 404 until you run set-repo-identity.
+# Remove these lines after setting your real vivirony955/repo so link-checking is full.
+https://github.com/vivirony955/.*
+https://vivirony955\.github\.io/.*
+
+# Generated-at-build page (only exists on the published site, not in the repo).
+.*book/index\.html
+
+# Example/placeholder domains used in docs.
+.*example\.(com|org)/.*
+mailto:.*
+
+# GitHub "new issue/advisory" deep links sometimes rate-limit anonymous checkers.
+https://github\.com/.*/issues/new.*
+https://github\.com/.*/security/advisories/new.*

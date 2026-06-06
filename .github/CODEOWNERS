@@ -1,0 +1,24 @@
+# Code owners are auto-requested for review on matching paths.
+# Docs: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+# Replace @vivirony955 with the maintainer handle(s) or a team like @your-org/maintainers.
+
+# Default owner for everything
+*                       @vivirony955
+
+# The manuscript and companion content require a content maintainer
+/book/                  @vivirony955
+/slides/                @vivirony955
+/test-bank/             @vivirony955
+/figures/               @vivirony955
+
+# Tooling, CI, and release infra
+/.github/               @vivirony955
+/scripts/               @vivirony955
+/website/               @vivirony955
+/releases/              @vivirony955
+
+# Governance and licensing changes get extra scrutiny
+/GOVERNANCE.md          @vivirony955
+/LICENSE                @vivirony955
+/LICENSE-CODE           @vivirony955
+/CODE_OF_CONDUCT.md     @vivirony955

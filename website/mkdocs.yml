@@ -1,0 +1,80 @@
+site_name: An AI-Driven Software Development System
+site_description: >-
+  A free, openly-licensed textbook on running a modern software development
+  lifecycle with AI agents in the loop. Principles first, vendor-neutral.
+site_author: Vivek Negi
+# Update these two after running scripts/set-repo-identity:
+site_url: https://vivirony955.github.io/ai-driven-sdlc/
+repo_url: https://github.com/vivirony955/ai-driven-sdlc
+repo_name: vivirony955/ai-driven-sdlc
+edit_uri: ""            # content lives in a .docx; no per-page edit links
+copyright: >-
+  Content &copy; Vivek Negi, licensed under
+  <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Code MIT.
+
+docs_dir: docs
+
+theme:
+  name: material
+  language: en
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - toc.follow
+  # Drop assets/logo.svg and assets/favicon.png in, then uncomment:
+  # logo: assets/logo.svg
+  # favicon: assets/favicon.png
+
+extra_css:
+  - stylesheets/extra.css
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/vivirony955/ai-driven-sdlc
+
+nav:
+  - Home: index.md
+  - Read online: read-online.md
+  - Download (PDF / EPUB): download.md
+  - Adopt the book:
+      - For educators: adopt/educators.md
+      - For students: adopt/students.md
+      - For self-learners: adopt/self-learners.md
+  - Contribute: contributing.md
+  - Accessibility: accessibility.md

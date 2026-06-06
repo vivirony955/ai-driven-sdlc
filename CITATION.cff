@@ -1,0 +1,39 @@
+# Citation File Format — https://citation-file-format.github.io/
+# GitHub reads this to power the "Cite this repository" button.
+# Maintainers: replace the author entry with the real author name(s) before
+# release, and add a DOI under `identifiers` once a release is archived to Zenodo.
+cff-version: 1.2.0
+message: "If you use this book, please cite it as below."
+title: "An AI-Driven Software Development System: A Theoretical Framework for the Modern Software Engineering Lifecycle"
+abstract: >-
+  A free, openly-licensed textbook on running a modern software development
+  lifecycle when capable AI agents are first-class participants. Principles-first
+  and vendor-neutral, it covers context engineering, token economics, governance,
+  agent design, failure-first quality assurance, security, observability, and cost,
+  with a running case study and a companion slide deck and test bank.
+type: book
+authors:
+  - given-names: "Vivek"
+    family-names: "Negi"
+    # Add an ORCID if you have one (recommended for citation):
+    # orcid: "https://orcid.org/0000-0000-0000-0000"
+version: "1.0.0"
+date-released: "2026-04-01"
+license: CC-BY-4.0
+repository-code: "https://github.com/vivirony955/ai-driven-sdlc"
+url: "https://vivirony955.github.io/ai-driven-sdlc/"
+keywords:
+  - software engineering
+  - software development lifecycle
+  - SDLC
+  - artificial intelligence
+  - AI agents
+  - large language models
+  - prompt engineering
+  - AI governance
+  - open educational resource
+  - textbook
+# identifiers:
+#   - type: doi
+#     value: 10.5281/zenodo.XXXXXXX
+#     description: "Concept DOI (all versions)"

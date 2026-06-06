@@ -1,0 +1,55 @@
+name: 📝 Errata (typo / error in the book)
+description: Report a typo, factual error, broken cross-reference, or unclear passage in the book, slides, or test bank.
+title: "[Errata] <chapter>: <short description>"
+labels: ["errata", "content"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for improving the book! Because the manuscript is a Word file,
+        the most helpful thing you can do is **quote the exact text** so a
+        maintainer can find and fix it quickly. (See CONTRIBUTING.md → "Editing the manuscript".)
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where is it?
+      options:
+        - Textbook (chapter)
+        - Textbook (bridge)
+        - Textbook (appendix)
+        - Slides
+        - Test bank
+        - Figure / caption
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: location
+    attributes:
+      label: Chapter / section / page
+      description: e.g. "Chapter 7 — Governance, section 'Approval gates', p. 84"
+      placeholder: "Chapter N — Section title"
+    validations:
+      required: true
+  - type: textarea
+    id: quote
+    attributes:
+      label: The exact text as it appears now
+      description: Copy the sentence(s) verbatim.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: Suggested correction
+      description: What it should say, and (if useful) why.
+    validations:
+      required: true
+  - type: checkboxes
+    id: coc
+    attributes:
+      label: Code of Conduct
+      options:
+        - label: I agree to follow this project's Code of Conduct.
+          required: true
