@@ -19,13 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-Scope note: This MIT License covers the CODE in this repository — the contents
-of `examples/` and `scripts/`, the GitHub Actions workflows and configuration in
-`.github/`, the website source in `website/`, and any other source code or
-configuration files. The book's prose and visual content (the manuscript, slides,
-test bank, figures, and other written/visual material) are licensed separately
-under Creative Commons Attribution 4.0 International — see the `LICENSE` file.
-When a file's nature is ambiguous, see the "Licensing" section of CONTRIBUTING.md.

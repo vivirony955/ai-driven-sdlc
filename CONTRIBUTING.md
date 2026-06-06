@@ -120,6 +120,13 @@ licenses: **content under [CC BY 4.0](LICENSE)** and **code under
 [MIT](LICENSE-CODE)** (see [which applies to what](README.md#license)). You confirm
 you have the right to contribute the material.
 
+The **MIT** license covers the repository's code: the contents of `examples/` and
+`scripts/`, the GitHub Actions workflows and configuration in `.github/`, the
+website source in `website/`, and any other source code or configuration files.
+Everything else — the manuscript, slides, test bank, figures, and other written or
+visual material — is **content** under CC BY 4.0. When a file's nature is
+ambiguous, treat prose/visual material as content and source/config as code.
+
 We use the **[Developer Certificate of Origin](https://developercertificate.org/)**.
 Sign off each commit with `-s` to certify you wrote the change or have the right to
 submit it:
